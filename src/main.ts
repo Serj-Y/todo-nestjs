@@ -13,7 +13,7 @@ async function bootstrap() {
 	app.use(requestIp.mw())
 
 	const config = new DocumentBuilder()
-		.setTitle('Todo documentation')
+		.setTitle('Documentation')
 		.setDescription('The todo API description')
 		.setVersion('1.0')
 		.addTag('Todo')
@@ -33,7 +33,7 @@ async function bootstrap() {
 	if (configService.get('NODE_ENV') === 'development') {
 		await app.listen(4221)
 	} else {
-		await app.listen(process.env.PORT, '0.0.0.0')
+		await app.listen(process.env.PORT || 3000, '0.0.0.0')
 	}
 }
 
