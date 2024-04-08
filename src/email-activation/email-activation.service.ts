@@ -47,6 +47,7 @@ export class EmailActivationService {
 			{ email: user.email, name: user.name },
 			emailToken
 		)
+		return { status: 'success' }
 	}
 
 	async activationAccept(dto: EmailActivationDto) {
@@ -64,5 +65,6 @@ export class EmailActivationService {
 		if (!user) {
 			throw new BadRequestException('Invalid token')
 		}
+		return { status: 'success' }
 	}
 }
