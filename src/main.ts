@@ -12,6 +12,12 @@ async function bootstrap() {
 	app.setGlobalPrefix('api')
 	app.use(requestIp.mw())
 
+	// app.useGlobalPipes(
+	// 	new ValidationPipe({
+	// 		transform: true,
+	// 	})
+	// )
+
 	const config = new DocumentBuilder()
 		.setTitle('Documentation')
 		.setDescription('The todo API description')
@@ -31,7 +37,7 @@ async function bootstrap() {
 	})
 
 	if (configService.get('NODE_ENV') === 'development') {
-		await app.listen(4221)
+		await app.listen(4222)
 	} else {
 		await app.listen(process.env.PORT || 3000, '0.0.0.0')
 	}
